@@ -24,4 +24,4 @@ const Mascota = sequelize.define('Mascota', {
   });
   
   Mascota.belongsTo(Refugio, { foreignKey: 'refugioId' });
-  
+  export default Mascota

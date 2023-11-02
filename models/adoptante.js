@@ -48,4 +48,4 @@ const Adoptante = sequelize.define('Adoptante', {
       type: DataTypes.STRING, // Almacena la ubicación como una cadena.
     },
   });
-  
+  export default Adoptante

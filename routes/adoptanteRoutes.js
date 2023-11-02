@@ -1,6 +1,6 @@
 import { Router } from 'express';
 const router = Router();
-import { Adoptante } from './models';
+import { Adoptante } from './models/adoptante';
 
 // Alta: Crear un nuevo adoptante
 router.post('/adoptantes', async (req, res) => {
@@ -38,6 +38,17 @@ router.put('/adoptantes/:id', async (req, res) => {
     res.status(200).json(adoptante);
   } catch (error) {
     res.status(400).json({ error: error.message });
+  }
+});
+
+// Ruta para obtener la lista completa de adoptantes
+router.get('/adoptantes', async (req, res) => {
+  try {
+    console.log("adoptantes");
+    const adoptantes = await Adoptante.findAll();
+    res.status(200).json(adoptantes);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
 });
 

@@ -23,3 +23,4 @@ const Refugio = sequelize.define('Refugio', {
     },    
   });
   
+  export default Refugio
