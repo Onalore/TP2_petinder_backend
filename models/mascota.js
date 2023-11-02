@@ -1,3 +1,5 @@
+import { DataTypes } from "sequelize";
+import sequelize from "../connnection/sequalize.js";
 const Mascota = sequelize.define('Mascota', {
     mascota_id:{
     type: DataTypes.UUID,
@@ -28,5 +30,5 @@ const Mascota = sequelize.define('Mascota', {
     // Agregar la relación con el refugio.
   });
   
-  Mascota.belongsTo(Refugio, { foreignKey: 'refugioId' });
+  //Mascota.belongsTo(Refugio, { foreignKey: 'refugioId' });
   export default Mascota

@@ -1,3 +1,5 @@
+import { DataTypes } from "sequelize";
+import sequelize from "../connnection/sequalize.js";
 const Refugio = sequelize.define('Refugio', {
     refugio_id:{
     type: DataTypes.UUID,

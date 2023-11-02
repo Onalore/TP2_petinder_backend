@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-
+import sequelize from "../connnection/sequalize.js";
 const Adoptante = sequelize.define('Adoptante', {
     adoptante_id:{
       type: DataTypes.UUID,
