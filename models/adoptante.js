@@ -1,4 +1,11 @@
+import { DataTypes } from "sequelize";
+
 const Adoptante = sequelize.define('Adoptante', {
+    adoptante_id:{
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true
+    },  
     nombre: {
       type: DataTypes.STRING,
       allowNull: false,

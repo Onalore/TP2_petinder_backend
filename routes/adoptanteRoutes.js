@@ -1,16 +1,10 @@
 import { Router } from 'express';
-const router = Router();
+import AdoptanteController from '../controller/adoptanteController.js';
 import { Adoptante } from './models/adoptante';
-
+const router = Router();
+const adoptanteController = new AdoptanteController()
 // Alta: Crear un nuevo adoptante
-router.post('/adoptantes', async (req, res) => {
-  try {
-    const nuevoAdoptante = await Adoptante.create(req.body);
-    res.status(201).json(nuevoAdoptante);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
+router.post('/adoptantes',adoptanteController.createAdoptante);
 
 // Baja: Eliminar un adoptante por ID
 router.delete('/adoptantes/:id', async (req, res) => {

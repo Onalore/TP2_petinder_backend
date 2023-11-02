@@ -1,7 +1,12 @@
 const Mascota = sequelize.define('Mascota', {
+    mascota_id:{
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
+    primaryKey: true
+    },
     nombre: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false, 
       validate: {
         notEmpty: true,
       },

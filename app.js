@@ -1,5 +1,5 @@
 import express from "express"
-//import router from "../routes/adoptanteRoutes"
+//import router from "./routes/adoptanteRoutes.js"
 
 const app = express()
 
@@ -11,4 +11,4 @@ app.get("/", (req, res)=>{
     res.send("Esto es Petinder")
 })
 
-// app.use("/routes/adoptanteRoutes", router)
+//app.use("/routes/adoptanteRoutes", router)
