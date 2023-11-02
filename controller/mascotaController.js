@@ -4,7 +4,7 @@ class MascotaController {
     async crearMascota(req, res) {
       try {
         const nuevaMascota = await Mascota.create(req.body);
-        res.status(201).json(nuevaMascota);
+        res.status(201).json({ok: true, message: "Mascota created"});
       } catch (error) {
         res.status(400).json({ error: error.message });
       }

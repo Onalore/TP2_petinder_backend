@@ -1,10 +1,14 @@
-import { DataTypes } from "sequelize";
-import sequelize from "../connnection/sequalize.js";
-const Refugio = sequelize.define('Refugio', {
-    refugio_id:{
-    type: DataTypes.UUID,
-    defaultValue: DataTypes.UUIDV4,
-    primaryKey: true
+import { DataTypes, Model } from 'sequelize';
+import sequelize from '../connnection/sequelize.js';
+import Mascota from './mascota.js';
+class Refugio extends Model {}
+
+Refugio.init(
+  {
+    refugio_id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
     },
     nombre: {
       type: DataTypes.STRING,
@@ -27,7 +31,13 @@ const Refugio = sequelize.define('Refugio', {
         notEmpty: true,
         is: /^@[a-zA-Z0-9_]{1,30}$/ // Usuario de Instagram válido (30 caracteres o menos, sin espacios).
       },
-    },    
-  });
-  
-  export default Refugio
+    },
+  },
+  {
+    sequelize,
+    modelName: 'Refugio', // Nombre del modelo
+  }
+);
+
+//Refugio.hasMany(Mascota);
+export default Refugio;

@@ -15,7 +15,7 @@ class AdoptanteController {
   async obtenerAdoptantes(req, res) {
     try {
       const adoptantes = await Adoptante.findAll();
-      res.status(200).json(adoptantes);
+      res.status(200).json({ok: true, message: "Adoptante created"});
     } catch (error) {
       res.status(500).json({ error: error.message });
     }

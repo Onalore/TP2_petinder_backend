@@ -1,11 +1,15 @@
-import { DataTypes } from "sequelize";
-import sequelize from "../connnection/sequalize.js";
-const Adoptante = sequelize.define('Adoptante', {
-    adoptante_id:{
+import { DataTypes, Model } from 'sequelize';
+import sequelize from '../connnection/sequelize.js';
+import Mascota from './mascota.js';
+class Adoptante extends Model {}
+
+Adoptante.init(
+  {
+    adoptante_id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
-      primaryKey: true
-    },  
+      primaryKey: true,
+    },
     nombre: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -54,5 +58,13 @@ const Adoptante = sequelize.define('Adoptante', {
     ubicacion: {
       type: DataTypes.STRING, // Almacena la ubicación como una cadena.
     },
-  });
-  export default Adoptante
+  },
+  {
+    sequelize,
+    modelName: 'Adoptante', // Nombre del modelo
+  }
+);
+
+Adoptante.hasMany(Mascota);
+
+export default Adoptante;

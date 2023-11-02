@@ -4,7 +4,7 @@ class RefugioController {
     async crearRefugio(req, res) {
       try {
         const nuevoRefugio = await Refugio.create(req.body);
-        res.status(201).json(nuevoRefugio);
+        res.status(201).json({ok: true, message: "Refugio created"});
       } catch (error) {
         res.status(400).json({ error: error.message });
       }
