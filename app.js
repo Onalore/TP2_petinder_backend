@@ -13,6 +13,6 @@ app.get('/', (req, res) => {
     res.send('Bienvenido a Petinder');
   });
 
-app.use('/api/adoptantes', adoptanteRoutes);
-app.use('/api/mascotas', mascotaRoutes);
-app.use('/api/refugios', refugioRoutes);
+app.use('/api', adoptanteRoutes);
+app.use('/api', mascotaRoutes);
+app.use('/api', refugioRoutes);
