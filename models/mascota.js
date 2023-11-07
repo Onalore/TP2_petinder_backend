@@ -1,7 +1,7 @@
-import { DataTypes, Model } from 'sequelize';
-import sequelize from '../connnection/sequelize.js';
-import Refugio from './refugio.js';
-import Adoptante from './adoptante.js';
+import { DataTypes, Model } from "sequelize";
+import sequelize from "../connnection/sequelize.js";
+// import Refugio from "./refugio.js";
+// import Adoptante from "./adoptante.js";
 class Mascota extends Model {}
 
 Mascota.init(
@@ -36,11 +36,11 @@ Mascota.init(
   },
   {
     sequelize,
-    modelName: 'Mascota', // Nombre del modelo
+    modelName: "Mascota", // Nombre del modelo
   }
 );
 
 //Mascota.belongsTo(Adoptante);
-Mascota.belongsTo(Refugio);
+//Mascota.belongsTo(Refugio);
 
 export default Mascota;

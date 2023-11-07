@@ -1,4 +1,4 @@
-import Adoptante from "../models/adoptante.js";
+import { Adoptante } from "../models/index.js";
 
 class AdoptanteController {
   // Crear un nuevo adoptante
@@ -15,7 +15,7 @@ class AdoptanteController {
   async obtenerAdoptantes(req, res) {
     try {
       const adoptantes = await Adoptante.findAll();
-      res.status(200).json({ok: true, message: "Adoptante created"});
+      res.status(200).json({ ok: true, message: "Adoptante created" });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
@@ -26,7 +26,7 @@ class AdoptanteController {
     try {
       const adoptante = await Adoptante.findByPk(req.params.id);
       if (!adoptante) {
-        return res.status(404).json({ error: 'Adoptante no encontrado' });
+        return res.status(404).json({ error: "Adoptante no encontrado" });
       }
       res.status(200).json(adoptante);
     } catch (error) {
@@ -39,7 +39,7 @@ class AdoptanteController {
     try {
       const adoptante = await Adoptante.findByPk(req.params.id);
       if (!adoptante) {
-        return res.status(404).json({ error: 'Adoptante no encontrado' });
+        return res.status(404).json({ error: "Adoptante no encontrado" });
       }
       adoptante.set(req.body); // Actualiza los campos del adoptante.
       await adoptante.save();
@@ -54,7 +54,7 @@ class AdoptanteController {
     try {
       const adoptante = await Adoptante.findByPk(req.params.id);
       if (!adoptante) {
-        return res.status(404).json({ error: 'Adoptante no encontrado' });
+        return res.status(404).json({ error: "Adoptante no encontrado" });
       }
       await adoptante.destroy();
       res.status(204).send();

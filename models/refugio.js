@@ -1,6 +1,6 @@
-import { DataTypes, Model } from 'sequelize';
-import sequelize from '../connnection/sequelize.js';
-import Mascota from './mascota.js';
+import { DataTypes, Model } from "sequelize";
+import sequelize from "../connnection/sequelize.js";
+// import Mascota from './mascota.js';
 class Refugio extends Model {}
 
 Refugio.init(
@@ -29,13 +29,13 @@ Refugio.init(
       allowNull: false,
       validate: {
         notEmpty: true,
-        is: /^@[a-zA-Z0-9_]{1,30}$/ // Usuario de Instagram válido (30 caracteres o menos, sin espacios).
+        is: /^@[a-zA-Z0-9_]{1,30}$/, // Usuario de Instagram válido (30 caracteres o menos, sin espacios).
       },
     },
   },
   {
     sequelize,
-    modelName: 'Refugio', // Nombre del modelo
+    modelName: "Refugio", // Nombre del modelo
   }
 );
 
