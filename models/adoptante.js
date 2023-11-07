@@ -1,6 +1,6 @@
-import { DataTypes, Model } from 'sequelize';
-import sequelize from '../connnection/sequelize.js';
-import Mascota from './mascota.js';
+import { DataTypes, Model } from "sequelize";
+import sequelize from "../connnection/sequelize.js";
+// import Mascota from "./mascota.js";
 class Adoptante extends Model {}
 
 Adoptante.init(
@@ -37,7 +37,7 @@ Adoptante.init(
       allowNull: false,
       validate: {
         notEmpty: true,
-        is: /^\d{10}$/ // Un número de teléfono válido (10 dígitos).
+        is: /^\d{10}$/, // Un número de teléfono válido (10 dígitos).
       },
     },
     instagram: {
@@ -45,7 +45,7 @@ Adoptante.init(
       allowNull: false,
       validate: {
         notEmpty: true,
-        is: /^@[a-zA-Z0-9_]{1,30}$/ // Usuario de Instagram válido (30 caracteres o menos, sin espacios).
+        is: /^@[a-zA-Z0-9_]{1,30}$/, // Usuario de Instagram válido (30 caracteres o menos, sin espacios).
       },
     },
     direccion: {
@@ -61,10 +61,10 @@ Adoptante.init(
   },
   {
     sequelize,
-    modelName: 'Adoptante', // Nombre del modelo
+    modelName: "Adoptante", // Nombre del modelo
   }
 );
 
-Adoptante.hasMany(Mascota);
+//Adoptante.hasMany(Mascota);
 
 export default Adoptante;
