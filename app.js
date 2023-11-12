@@ -1,23 +1,21 @@
 import express from "express";
-// import adoptanteRoutes from "./routes/adoptanteRoutes.js";
-// import mascotaRoutes from "./routes/mascotaRoutes.js";
-// import refugioRoutes from "./routes/refugioRoutes.js";
 import router from "./routes/index.js";
-import sequelize from "./connnection/sequelize.js";
+import sequelize from "./connection/sequelize.js";
 
 const app = express();
+const PORT = 8080;
 
 app.get("/", (req, res) => {
   res.send("Bienvenido a Petinder");
 });
 
+//Middleware para analizar el body de la solicitud como JSON
+app.use(express.json());
+
 app.use("/api", router);
-// app.use("/adoptantes", adoptanteRoutes);
-// app.use("/mascotas", mascotaRoutes);
-// app.use("/refugio", refugioRoutes);
 
 await sequelize.sync({ force: true });
 
-app.listen(8080, () => {
-  console.log("Server is running on port 8080");
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

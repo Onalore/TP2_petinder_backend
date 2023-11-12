@@ -3,9 +3,14 @@ import { Adoptante } from "../models/index.js";
 class AdoptanteController {
   // Crear un nuevo adoptante
   async crearAdoptante(req, res) {
+    if (!req.body) {
+      return res
+        .status(400)
+        .json({ error: "Datos del adoptante no proporcionados" });
+    }
     try {
       const nuevoAdoptante = await Adoptante.create(req.body);
-      res.status(201).json(nuevoAdoptante);
+      res.status(200).json(nuevoAdoptante);
     } catch (error) {
       res.status(400).json({ error: error.message });
     }

@@ -1,5 +1,5 @@
 import { DataTypes, Model } from "sequelize";
-import sequelize from "../connnection/sequelize.js";
+import sequelize from "../connection/sequelize.js";
 // import Mascota from "./mascota.js";
 class Adoptante extends Model {}
 
@@ -45,7 +45,7 @@ Adoptante.init(
       allowNull: false,
       validate: {
         notEmpty: true,
-        is: /^@[a-zA-Z0-9_]{1,30}$/, // Usuario de Instagram válido (30 caracteres o menos, sin espacios).
+        is: /^[^\s]{1,30}$/, // Usuario de Instagram válido (30 caracteres o menos, sin espacios).
       },
     },
     direccion: {

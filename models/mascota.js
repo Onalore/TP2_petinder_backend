@@ -1,5 +1,5 @@
 import { DataTypes, Model } from "sequelize";
-import sequelize from "../connnection/sequelize.js";
+import sequelize from "../connection/sequelize.js";
 // import Refugio from "./refugio.js";
 // import Adoptante from "./adoptante.js";
 class Mascota extends Model {}
