@@ -10,7 +10,7 @@ class AdoptanteController {
     }
     try {
       const nuevoAdoptante = await Adoptante.create(req.body);
-      res.status(200).json(nuevoAdoptante);
+      res.status(200).json({ ok: true, message: "Adoptante creado" });
     } catch (error) {
       res.status(400).json({ error: error.message });
     }
@@ -20,7 +20,7 @@ class AdoptanteController {
   async obtenerAdoptantes(req, res) {
     try {
       const adoptantes = await Adoptante.findAll();
-      res.status(200).json({ ok: true, message: "Adoptante created" });
+      res.status(200).json({ ok: true, adoptantes: adoptantes });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
@@ -33,7 +33,7 @@ class AdoptanteController {
       if (!adoptante) {
         return res.status(404).json({ error: "Adoptante no encontrado" });
       }
-      res.status(200).json(adoptante);
+      res.status(200).json({ ok: true, adoptante: adoptante });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
@@ -48,7 +48,7 @@ class AdoptanteController {
       }
       adoptante.set(req.body); // Actualiza los campos del adoptante.
       await adoptante.save();
-      res.status(200).json(adoptante);
+      res.status(200).json({ ok: true, message: "Adoptante actualizado" });
     } catch (error) {
       res.status(400).json({ error: error.message });
     }
@@ -62,7 +62,7 @@ class AdoptanteController {
         return res.status(404).json({ error: "Adoptante no encontrado" });
       }
       await adoptante.destroy();
-      res.status(204).send();
+      res.status(200).json({ ok: true, message: "Adoptante eliminado" });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }

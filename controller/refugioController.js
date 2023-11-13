@@ -4,7 +4,7 @@ class RefugioController {
   async crearRefugio(req, res) {
     try {
       const nuevoRefugio = await Refugio.create(req.body);
-      res.status(201).json({ ok: true, message: "Refugio created" });
+      res.status(201).json({ ok: true, message: "Refugio creado" });
     } catch (error) {
       res.status(400).json({ error: error.message });
     }
@@ -25,7 +25,7 @@ class RefugioController {
       if (!refugio) {
         return res.status(404).json({ error: "Refugio no encontrado" });
       }
-      res.status(200).json(refugio);
+      res.status(200).json({ ok: true, refugio: refugio });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
@@ -39,7 +39,7 @@ class RefugioController {
       }
       refugio.set(req.body);
       await refugio.save();
-      res.status(200).json(refugio);
+      res.status(200).json({ ok: true, message: "Refugio actualizado" });
     } catch (error) {
       res.status(400).json({ error: error.message });
     }
@@ -52,7 +52,7 @@ class RefugioController {
         return res.status(404).json({ error: "Refugio no encontrado" });
       }
       await refugio.destroy();
-      res.status(204).send();
+      res.status(200).json({ ok: true, message: "Refugio eliminado" });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }

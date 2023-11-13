@@ -7,7 +7,9 @@ class Mascota extends Model {}
 Mascota.init(
   {
     mascota_id: {
+      //almacenará un identificador único universal
       type: DataTypes.UUID,
+      //genera un UUID utilizando la versión 4 del algoritmo, que se basa en la aleatoriedad
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
@@ -18,29 +20,32 @@ Mascota.init(
         notEmpty: true,
       },
     },
-    edad: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        isInt: true,
-      },
-    },
-    tipo: {
-      type: DataTypes.STRING,
+    sexo: {
+      type: DataTypes.ENUM("hembra", "macho"),
       allowNull: false,
       validate: {
         notEmpty: true,
       },
     },
-    // Agrega la relación con el refugio si es necesario.
+    fechaDeNacimiento: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    tipo: {
+      type: DataTypes.ENUM("perro", "gato", "conejo"),
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
   },
   {
     sequelize,
     modelName: "Mascota", // Nombre del modelo
   }
 );
-
-//Mascota.belongsTo(Adoptante);
-//Mascota.belongsTo(Refugio);
 
 export default Mascota;
