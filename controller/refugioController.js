@@ -13,7 +13,7 @@ class RefugioController {
   async obtenerRefugios(req, res) {
     try {
       const refugios = await Refugio.findAll();
-      res.status(200).json(refugios);
+      res.status(200).json({ ok: true, refugios: refugios });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }

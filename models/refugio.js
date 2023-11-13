@@ -29,7 +29,7 @@ Refugio.init(
       allowNull: false,
       validate: {
         notEmpty: true,
-        is: /^@[a-zA-Z0-9_]{1,30}$/, // Usuario de Instagram válido (30 caracteres o menos, sin espacios).
+        is: /^[^\s]{1,30}$/, // Usuario de Instagram válido (30 caracteres o menos, sin espacios).
       },
     },
   },
@@ -39,5 +39,4 @@ Refugio.init(
   }
 );
 
-//Refugio.hasMany(Mascota);
 export default Refugio;
