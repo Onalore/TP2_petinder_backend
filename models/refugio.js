@@ -18,7 +18,7 @@ Refugio.init(
       },
     },
     tipoMascotas: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM("gatos", "perros", "conejos", "mixto"),
       allowNull: false,
       validate: {
         notEmpty: true,

@@ -7,6 +7,6 @@ const router = Router();
 
 router.use("/adoptantes", adoptanteRoutes);
 router.use("/mascotas", mascotaRoutes);
-router.use("/refugio", refugioRoutes);
+router.use("/refugios", refugioRoutes);
 
 export default router;
