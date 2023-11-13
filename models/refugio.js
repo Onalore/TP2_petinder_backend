@@ -1,6 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../connection/sequelize.js";
-// import Mascota from './mascota.js';
+
 class Refugio extends Model {}
 
 Refugio.init(
