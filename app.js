@@ -11,8 +11,11 @@ app.get("/", (req, res) => {
 
 //Middleware para analizar el body de la solicitud como JSON
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);
+
+app.set("port", PORT);
 
 await sequelize.sync({ force: true });
 

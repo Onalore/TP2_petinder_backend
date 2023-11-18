@@ -1,4 +1,4 @@
-import { Adoptante } from "../models/index.js";
+import { Adoptante, Mascota } from "../models/index.js";
 
 class AdoptanteController {
   // Crear un nuevo adoptante
@@ -13,6 +13,24 @@ class AdoptanteController {
       res.status(200).json({ ok: true, message: "Adoptante creado" });
     } catch (error) {
       res.status(400).json({ error: error.message });
+    }
+  }
+
+  //Crear preferirMascota
+  async preferirMascota(req, res) {
+    try {
+      const adoptante = await Adoptante.findByPk(req.params.idAdoptante);
+      const mascota = await Mascota.findByPk(req.params.idMascota);
+      if (!adoptante || !mascota) {
+        return res
+          .status(400)
+          .json({ error: "Adoptante o mascota no encontrados" });
+      }
+      const adoptanteMascota = adoptante.addMascota(mascota);
+      //mascota.addAdoptante(adoptante) es lo mismo
+      res.status(200).json({ ok: true, adoptanteMascota: adoptanteMascota });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
     }
   }
 

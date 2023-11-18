@@ -5,6 +5,7 @@ const router = Router();
 const adoptanteController = AdoptanteController;
 
 router.post("/", adoptanteController.crearAdoptante);
+//router.post("/preferirMascota/:idAdoptante/:idMascota", adoptanteController.preferirMascota);
 router.get("/", adoptanteController.obtenerAdoptantes);
 router.get("/:id", adoptanteController.obtenerAdoptantePorId);
 router.put("/:id", adoptanteController.actualizarAdoptante);
